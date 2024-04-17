@@ -12,7 +12,8 @@
 get_met_hrrr <- function(files = NULL,
                          path_met_files) {
                            
-  ftp_dir <- "ftp://arlftp.arlhq.noaa.gov/pub/archives/hrrr/"
+  # ftp_dir <- "ftp://arlftp.arlhq.noaa.gov/pub/archives/hrrr/"
+  ftp_dir <- "ftp://ftp.arl.noaa.gov/archives/hrrr/"
   
   # Download list of reanalysis met files by name
   if (!is.null(files)) {
