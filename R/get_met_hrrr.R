@@ -39,7 +39,7 @@
 get_met_hrrr <- function(days, path_met_files) {
   date <- as.Date(days)
   date  <- format(date, "%Y%m%d")
-  files <- list.files(path_met_files, pattern = date, full.names = TRUE)
+  files <- list.files(path_met_files, pattern = date, full.names = FALSE)
    get_met_files(
     files = files,
     path_met_files = path_met_files,
