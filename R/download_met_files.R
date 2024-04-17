@@ -32,8 +32,6 @@ download_met_files <- function(met_type,
     met_files <-
       get_met_hrrr(
         days = days,
-        duration = duration,
-        direction = direction,
         path_met_files = met_dir
       )
   }
