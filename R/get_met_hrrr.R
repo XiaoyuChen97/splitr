@@ -9,23 +9,43 @@
 #' @param path_met_files a full path should be provided for the location of the
 #'   meteorological data files; downloaded files will be saved in this location.
 #' @export
-get_met_hrrr <- function(files = NULL,
-                         path_met_files) {
-                           
-  # ftp_dir <- "ftp://arlftp.arlhq.noaa.gov/pub/archives/hrrr/"
-  ftp_dir <- "ftp://ftp.arl.noaa.gov/archives/hrrr/"
+
+#################################original function in splitr from Rich
+# get_met_hrrr <- function(files = NULL,
+#                         path_met_files) {
+#                           
+#  # ftp_dir <- "ftp://arlftp.arlhq.noaa.gov/pub/archives/hrrr/"
+#  ftp_dir <- "ftp://ftp.arl.noaa.gov/archives/hrrr/"
+#  
+#  # Download list of reanalysis met files by name
+#  if (!is.null(files)) {
+#    
+#    for (i in 1:length(files)) {
+#        download(
+#          url = file.path(ftp_dir, files[i]),
+#          destfile = file.path(path_met_files, files[i]),
+#          method = "auto",
+#          quiet = FALSE,
+#          mode = "wb",
+#          cacheOK = FALSE) 
+#    }
+#  }
+# }
+
+
+
+
+#####################revised code by Xiaoyu 2024/04017
+get_met_hrrr <- function(days, path_met_files) {
   
-  # Download list of reanalysis met files by name
-  if (!is.null(files)) {
-    
-    for (i in 1:length(files)) {
-        download(
-          url = file.path(ftp_dir, files[i]),
-          destfile = file.path(path_met_files, files[i]),
-          method = "auto",
-          quiet = FALSE,
-          mode = "wb",
-          cacheOK = FALSE) 
-    }
-  }
+  date  <- format(days, "%Y%m%d")
+  files <- list.files(path_met_files, pattern = date, full.names = TRUE)
+   get_met_files(
+    files = files,
+    path_met_files = path_met_files,
+    ftp_dir = "ftp://arlftp.arlhq.noaa.gov/archives/gdas1"
+  )
+ 
+
+
 }
