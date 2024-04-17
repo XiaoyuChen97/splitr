@@ -26,6 +26,17 @@ download_met_files <- function(met_type,
         path_met_files = met_dir
       )
   }
+
+  if (met_type == "hrrr") {
+    
+    met_files <-
+      get_met_hrrr(
+        days = days,
+        duration = duration,
+        direction = direction,
+        path_met_files = met_dir
+      )
+  }
   
   if (met_type == "gfs0.25") {
     
