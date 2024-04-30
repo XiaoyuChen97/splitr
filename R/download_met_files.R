@@ -35,7 +35,14 @@ download_met_files <- function(met_type,
         path_met_files = met_dir
       )
   }
-  
+  if (met_type == "wrf") {
+    
+    met_files <-
+      get_met_wrf(
+        days = days,
+        path_met_files = met_dir
+      )
+  }
   if (met_type == "gfs0.25") {
     
     met_files <-
