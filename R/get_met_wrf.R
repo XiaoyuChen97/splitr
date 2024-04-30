@@ -34,6 +34,18 @@
 
 
 
+#####################revised code by Xiaoyu 2024/04017
+# get_met_hrrr <- function(days, path_met_files) {
+#  date <- as.Date(days)
+#  date  <- format(date, "%Y%m%d")
+#  files <- list.files(path_met_files, pattern = date, full.names = FALSE)
+#   get_met_files(
+#    files = files,
+#    path_met_files = path_met_files,
+#    ftp_dir = "ftp://arlftp.arlhq.noaa.gov/archives/gdas1"
+#  )
+#}
+
 
 #####################revised code by Xiaoyu 2024/04017
 get_met_wrf <- function(days, path_met_files) {
@@ -41,7 +53,7 @@ get_met_wrf <- function(days, path_met_files) {
   date  <- format(date, "%Y%m%d")
   date2 <- as.Date(days)-days(1)
   date2  <- format(date2, "%Y%m%d")
-  files <- list.files(path_met_files, pattern = c(date, date2), full.names = FALSE)
+  files <- list.files(path_met_files, pattern =paste(date, date2, sep = "|"), full.names = FALSE)
    get_met_files(
     files = files,
     path_met_files = path_met_files,
