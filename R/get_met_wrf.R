@@ -51,9 +51,10 @@
 get_met_wrf <- function(days, path_met_files) {
   date <- as.Date(days)
   date  <- format(date, "%Y%m%d")
-  date2 <- as.Date(days)-days(1)
-  date2  <- format(date2, "%Y%m%d")
-  files <- list.files(path_met_files, pattern =paste(date, date2, sep = "|"), full.names = FALSE)
+ # date2 <- as.Date(days)-days(1)
+ # date2  <- format(date2, "%Y%m%d")
+  # pattern =paste(date, date2, sep = "|")
+  files <- list.files(path_met_files, pattern = date, full.names = FALSE)
    get_met_files(
     files = files,
     path_met_files = path_met_files,
